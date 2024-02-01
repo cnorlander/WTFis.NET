@@ -1,0 +1,120 @@
+@import url('./variables.css');
+
+/* altering baseline variables */
+:root {
+    --paper-1: var(--gray-10);
+    --paper-2: var(--gray-9);
+    --paper-3: var(--gray-7);
+
+    --ink-1: var(--gray-0);
+    --ink-2: var(--gray-2);
+    --ink-3: var(--gray-3);
+}
+
+/* adding some global CSS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+}
+
+* {
+    font-family: var(--font-body);
+}
+
+h1 {
+    font-size: var(--font-size-xxl);
+}
+
+h2 {
+    font-size: var(--font-size-lg);
+}
+
+/* change colors for light theme  */
+@media (prefers-color-scheme: light) {
+    /* TODO: this */
+}
+
+/* compoisition & layout classes */
+
+.flow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--flow);
+}
+
+.flow-centre {
+    display: flex;
+    flex-direction: column;
+    gap: var(--flow);
+    align-items: center;
+    justify-content: center;
+}
+
+/* utility classes */
+.bg-highlight {
+    background: var(--gradient-purple-magenta);
+    color: var(--ink-1);
+}
+
+.bg-primary {
+    background: var(--paper-1);
+    color: var(--ink-1);
+}
+
+/* block & component classes */
+.site-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--paper-1);
+    color: var(--ink-1);
+}
+
+.wrapper {
+    padding: var(--size-3) var(--size-2);
+}
+
+@supports (min-height: 100dvh) {
+    .site-wrapper {
+        min-height: 100dvh;
+    }
+}
+
+.prose-block {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        margin: var(--size-5) 0 var(--size-3);
+    }
+
+    p {
+        margin: var(--size-3) 0;
+    }
+}
+
+.site-header {
+    padding: var(--size-8) var(--size-2);
+}
+
+
+.site-footer {
+    display: flex;
+    padding: var(--size-4) var(--size-2);
+}
+
+/* exception classes, animations, and extras */
