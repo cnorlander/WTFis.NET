@@ -39,7 +39,20 @@ h1 {
 }
 
 h2 {
+    font-size: var(--font-size-xl);
+}
+
+h3 {
     font-size: var(--font-size-lg);
+}
+
+p {
+    font-size: var(--font-size-base);
+}
+
+::selection {
+    background: var(--dotnet-purple);
+    color: var(--purple-1);
 }
 
 /* change colors for light theme  */
@@ -65,7 +78,7 @@ h2 {
 
 /* utility classes */
 .bg-highlight {
-    background: var(--gradient-purple-magenta);
+    background: var(--dotnet-purple);
     color: var(--ink-1);
 }
 
@@ -76,6 +89,9 @@ h2 {
 
 /* block & component classes */
 .site-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-5);
     width: 100%;
     min-height: 100vh;
     background: var(--paper-1);
@@ -83,7 +99,7 @@ h2 {
 }
 
 .wrapper {
-    padding: var(--size-3) var(--size-2);
+    padding: var(--size-5);
 }
 
 @supports (min-height: 100dvh) {
@@ -108,13 +124,68 @@ h2 {
 }
 
 .site-header {
-    padding: var(--size-8) var(--size-2);
+    position: relative;
+    min-height: 40vh;
+    padding: var(--size-5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    > :is(h1, p) {
+        z-index: 3;
+        max-width: 60ch;
+        text-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    >p {
+        font-size: var(--font-size-md);
+    }
+
+    /* gradient */
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(ellipse at center, rgba(80, 39, 213, 0.88), rgba(80, 39, 213, 1));
+        z-index: 2;
+        border-radius: var(--size-5);
+    }
+
+    /* dotnet grid */
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/assets/dotnet-logo.svg');
+        background-attachment: fixed;
+        background-size: 64px 64px;
+        background-repeat: repeat;
+        z-index: 1;
+        animation: scale-up-fade;
+        animation-timeline: view();
+        animation-range: exit;
+        transform-origin: center;
+        border-radius: var(--size-5);
+    }
 }
 
-
 .site-footer {
-    display: flex;
-    padding: var(--size-4) var(--size-2);
+    padding: var(--size-8) var(--size-2);
+    color: var(--ink-1);
 }
 
 /* exception classes, animations, and extras */
+@keyframes scale-up-fade {
+    to {
+        scale: 0.9;
+        opacity: 0.1;
+    }
+}
