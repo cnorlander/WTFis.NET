@@ -100,6 +100,14 @@ p {
 
 .wrapper {
     padding: var(--size-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    >* {
+        max-width: 100ch;
+    }
 }
 
 @supports (min-height: 100dvh) {
@@ -123,18 +131,19 @@ p {
     }
 }
 
+.site-header__container {
+    width: 100%;
+    padding: var(--size-5);
+}
+
 .site-header {
     position: relative;
     min-height: 40vh;
     padding: var(--size-5);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
 
-    > :is(h1, p) {
+    > :is(div, h1, p) {
+        width: 100%;
         z-index: 3;
-        max-width: 60ch;
         text-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     }
 
