@@ -8,7 +8,7 @@
 
     --ink-1: var(--gray-0);
     --ink-2: var(--gray-2);
-    --ink-3: var(--gray-3);
+    --ink-3: var(--gray-5);
 }
 
 /* adding some global CSS */
@@ -61,7 +61,6 @@ p {
 }
 
 /* compoisition & layout classes */
-
 .flow {
     display: flex;
     flex-direction: column;
@@ -87,7 +86,41 @@ p {
     color: var(--ink-1);
 }
 
+.separator {
+    border-top: 1px solid var(--ink-3);
+    padding-top: var(--size-3);
+}
+
 /* block & component classes */
+a {
+    color: var(--purple-5);
+
+    &:hover {
+        color: var(--purple-7);
+    }
+
+    &:visited {
+        color: var(--purple-7);
+    }
+}
+
+a.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-2);
+    border-radius: var(--size-2);
+    background: var(--dotnet-purple);
+    color: var(--gray-0);
+    padding: var(--size-3);
+    text-decoration: none;
+    transition: background 0.1s ease-in-out;
+
+    &:hover {
+        background: var(--dotnet-purple-darker);
+    }
+}
+
 .site-wrapper {
     display: flex;
     flex-direction: column;
